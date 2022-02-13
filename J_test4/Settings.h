@@ -11,5 +11,7 @@
 #define MMin -255
 #define MMax 255
 //#define PWM 11 // for scotts code
-#define BusArray_size 10 // change this for CC size you have 
+#define BusArray_size 7 // change this for CC size you have 
 int CC[BusArray_size]; // define the Control Channal int array 
+//#define DEBUGIBUS
+//#define DEBUGDRIVE

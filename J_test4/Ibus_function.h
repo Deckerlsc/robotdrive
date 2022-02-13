@@ -11,9 +11,15 @@ int readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue)
   if (ch < 100) return defaultValue;
   return map(ch, 1000, 2000, minLimit, maxLimit);
 }
-bool PowerSwitch(int CCPS){
- int PSwitch = ibus.readChannel(CCPS);
- return map(PSwitch,1000,2000,0,1);
+
+bool PowerSwitch(int CCPS){ //function for checking bool switchs 
+ int Switch = ibus.readChannel(CCPS);
+ return map(Switch,1000,2000,0,1);
+}
+
+int duelp3Switch(int CCPS){ //function for checking 3 position switchs 
+ int Switch = ibus.readChannel(CCPS);
+ return map(Switch,1000,2000,1,10);
 }
 
 void Debug_plot_raw(int Com){// function to read out the CC array 

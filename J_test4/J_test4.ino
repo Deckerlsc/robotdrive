@@ -18,11 +18,15 @@ void setup() {
 
 void loop() {
   
-Ibus_Read(); //read Ibus 
+Ibus_Read(); //read 
+#ifdef DEBUGIBUS
 Debug_plot_raw(0);// turn on ibus debug on Serial0 
-if(PowerSwitch(5)){ //turn on tankdrive 
-  // do motor control here 
-  Tank_Drive(CC[1],CC[3]);
-  Serial.print("drive on ");
+#endif
+if(PowerSwitch(5)){ //turn on tankdrive my switch is on CC5 off is 1000 on is 2000
+ Tank_Drive(CC[1],CC[3]);
+ #ifdef DEBUGDRIVE
+ Serial.print("drive on ");
+ #endif
 }
+Serial.println (duelp3Switch(4));
 }
